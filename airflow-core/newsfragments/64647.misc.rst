@@ -1,0 +1,1 @@
+Add unit tests for UI ``errorHandling`` helpers (``getErrorStatus``, ``createErrorToaster``).
