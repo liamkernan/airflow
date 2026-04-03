@@ -19,6 +19,8 @@
 import type { TFunction } from "i18next";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { createErrorToaster, getErrorStatus } from "./errorHandling";
+
 const { toasterCreate } = vi.hoisted(() => ({
   toasterCreate: vi.fn(),
 }));
@@ -29,10 +31,9 @@ vi.mock("src/components/ui", () => ({
   },
 }));
 
-import { createErrorToaster, getErrorStatus } from "./errorHandling";
-
 describe("getErrorStatus", () => {
   it("returns undefined for non-objects", () => {
+    // eslint-disable-next-line unicorn/no-null
     expect(getErrorStatus(null)).toBeUndefined();
     expect(getErrorStatus(undefined)).toBeUndefined();
     expect(getErrorStatus("oops")).toBeUndefined();
